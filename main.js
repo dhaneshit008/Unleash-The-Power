@@ -153,3 +153,26 @@
     });
   }
 })();
+/* ---------- Stat Counter Animation ---------- */
+document.addEventListener("DOMContentLoaded", () => {
+    const stats = document.querySelectorAll('.hero-stat-num');
+    
+    stats.forEach(stat => {
+        const updateCount = () => {
+            const target = +stat.getAttribute('data-count'); 
+            const count = +stat.innerText; 
+            
+            // Adjust speed here: lower number = faster animation
+            const speed = 100; 
+            const increment = Math.ceil(target / speed);
+            
+            if (count < target) {
+                stat.innerText = count + increment;
+                setTimeout(updateCount, 20);
+            } else {
+                stat.innerText = target;
+            }
+        };
+        updateCount();
+    });
+});
