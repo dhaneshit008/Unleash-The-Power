@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANIME LEGENDS | Premium Character Showcase</title>
+<meta name="description" content="A premium 3D anime character showcase featuring Naruto, Gojo Satoru, Kakashi Hatake and more legendary anime warriors with unique animated powers.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+
+<!-- GSAP for premium animations -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ CUSTOM CURSOR ============ -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- ============ LOADER ============ -->
+<div class="loader-screen" id="loaderScreen">
+  <div class="loader-content">
+    <div class="loader-emblem">
+      <svg viewBox="0 0 100 100" class="loader-svg">
+        <circle cx="50" cy="50" r="42" class="loader-ring-outer"/>
+        <circle cx="50" cy="50" r="30" class="loader-ring-inner"/>
+      </svg>
+      <span class="loader-glyph">絆</span>
+    </div>
+    <p class="loader-text">SUMMONING LEGENDS<span class="dots"><span>.</span><span>.</span><span>.</span></span></p>
+    <div class="loader-bar"><div class="loader-bar-fill" id="loaderFill"></div></div>
+  </div>
+</div>
+
+<!-- ============ BACKGROUND FX ============ -->
+<canvas id="particleCanvas" class="bg-canvas"></canvas>
+<div class="bg-grid"></div>
+<div class="bg-glow bg-glow-1"></div>
+<div class="bg-glow bg-glow-2"></div>
+
+<!-- ============ NAVBAR ============ -->
+<header class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo">
+    <span class="nav-logo-mark">刃</span>
+    <span class="nav-logo-text">ANIME<strong>LEGENDS</strong></span>
+  </a>
+  <nav class="nav-links">
+    <a href="#hero" class="nav-link active">Home</a>
+    <a href="#roster" class="nav-link">Roster</a>
+    <a href="#about" class="nav-link">About</a>
+  </nav>
+  <div class="nav-search">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="text" id="searchInput" placeholder="Search a legend...">
+  </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle Menu"><i class="fa-solid fa-bars"></i></button>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <div class="hero-bg-slides" id="heroSlides"></div>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <p class="hero-kicker" data-anim="fade-up">POWER · LEGACY · LEGEND</p>
+    <h1 class="hero-title" data-anim="fade-up">
+      <span class="hero-title-line">ANIME</span>
+      <span class="hero-title-line hero-title-accent">LEGENDS</span>
+    </h1>
+    <p class="hero-sub" data-anim="fade-up">A premium 3D showcase of the most powerful characters ever animated — Naruto, Gojo Satoru, Kakashi Hatake, and the legends who shaped the anime world.</p>
+    <div class="hero-cta-row" data-anim="fade-up">
+      <a href="#roster" class="btn btn-primary"><i class="fa-solid fa-bolt"></i> Explore Roster</a>
+      <button class="btn btn-ghost" id="heroRandomBtn"><i class="fa-solid fa-shuffle"></i> Random Legend</button>
+    </div>
+    <div class="hero-stats" data-anim="fade-up">
+      <div class="hero-stat"><span class="hero-stat-num" data-count="12">0</span><span class="hero-stat-label">Legends</span></div>
+      <div class="hero-stat"><span class="hero-stat-num" data-count="6">0</span><span class="hero-stat-label">Anime Universes</span></div>
+      <div class="hero-stat"><span class="hero-stat-num" data-count="48">0</span><span class="hero-stat-label">Signature Powers</span></div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <span>SCROLL</span>
+    <i class="fa-solid fa-chevron-down"></i>
+  </div>
+</section>
+
+<!-- ============ MARQUEE STRIP ============ -->
+<div class="marquee-strip">
+  <div class="marquee-track">
+    <span>SAGE MODE</span><span>·</span><span>LIMITLESS</span><span>·</span><span>SHARINGAN</span><span>·</span>
+    <span>DOMAIN EXPANSION</span><span>·</span><span>SUSANOO</span><span>·</span><span>GEAR 5</span><span>·</span>
+    <span>ULTRA INSTINCT</span><span>·</span><span>BANKAI</span><span>·</span><span>RINNEGAN</span><span>·</span>
+    <span>SAGE MODE</span><span>·</span><span>LIMITLESS</span><span>·</span><span>SHARINGAN</span><span>·</span>
+    <span>DOMAIN EXPANSION</span><span>·</span><span>SUSANOO</span><span>·</span><span>GEAR 5</span><span>·</span>
+    <span>ULTRA INSTINCT</span><span>·</span><span>BANKAI</span><span>·</span><span>RINNEGAN</span><span>·</span>
+  </div>
+</div>
+
+<!-- ============ ROSTER ============ -->
+<main>
+<section class="roster-section" id="roster">
+  <div class="section-head">
+    <p class="section-kicker" data-anim="fade-up">CHOOSE YOUR LEGEND</p>
+    <h2 class="section-title" data-anim="fade-up">The Character Roster</h2>
+    <p class="section-desc" data-anim="fade-up">Click any card to enter an immersive profile with animated signature powers, stats and lore.</p>
+  </div>
+
+  <div class="filter-bar" data-anim="fade-up">
+    <button class="filter-chip active" data-filter="all">All</button>
+    <button class="filter-chip" data-filter="Naruto Shippuden">Naruto</button>
+    <button class="filter-chip" data-filter="Jujutsu Kaisen">Jujutsu Kaisen</button>
+    <button class="filter-chip" data-filter="One Piece">One Piece</button>
+    <button class="filter-chip" data-filter="Dragon Ball Super">Dragon Ball</button>
+    <button class="filter-chip" data-filter="Bleach">Bleach</button>
+    <button class="filter-chip" data-filter="Attack on Titan">Attack on Titan</button>
+    <button class="filter-chip" data-filter="Demon Slayer">Demon Slayer</button>
+  </div>
+
+  <div class="roster-grid" id="rosterGrid"><!-- Cards injected by JS --></div>
+  <p class="no-results" id="noResults" hidden>No legends found. Try another search.</p>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="about-section" id="about">
+  <div class="about-visual">
+    <div class="about-orb">
+      <div class="about-orb-ring r1"></div>
+      <div class="about-orb-ring r2"></div>
+      <div class="about-orb-ring r3"></div>
+      <div class="about-orb-core"><i class="fa-solid fa-yin-yang"></i></div>
+    </div>
+  </div>
+  <div class="about-content">
+    <p class="section-kicker" data-anim="fade-up">THE EXPERIENCE</p>
+    <h2 class="section-title" data-anim="fade-up">Every Legend, Fully Realized</h2>
+    <p class="about-text" data-anim="fade-up">Anime Legends brings together the most iconic warriors from across the anime multiverse into one premium interactive gallery. Every character features a dedicated profile with cinematic power animations, dynamic stat visualizations, and lore pulled straight from their story arcs.</p>
+    <ul class="about-list" data-anim="fade-up">
+      <li><i class="fa-solid fa-cube"></i> Interactive 3D tilt character cards</li>
+      <li><i class="fa-solid fa-wand-magic-sparkles"></i> Unique signature power animation per character</li>
+      <li><i class="fa-solid fa-chart-simple"></i> Animated stat radar & power bars</li>
+      <li><i class="fa-solid fa-palette"></i> Custom color aura themed to each legend</li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <span class="nav-logo-mark">刃</span>
+      <span class="nav-logo-text">ANIME<strong>LEGENDS</strong></span>
+    </div>
+    <p class="footer-tag">A fan-made premium showcase celebrating the greatest anime characters ever created.</p>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Anime Legends Showcase. All characters &amp; artwork belong to their respective creators and studios.</p>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/particles.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

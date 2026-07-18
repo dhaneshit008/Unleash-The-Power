@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Legend Profile | ANIME LEGENDS</title>
+<meta name="description" content="Individual anime character profile with animated signature powers, stats and lore.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/character.css">
+</head>
+<body class="character-page">
+
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<canvas id="powerCanvas" class="power-canvas"></canvas>
+<div class="bg-grid"></div>
+
+<!-- ============ NAVBAR ============ -->
+<header class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo">
+    <span class="nav-logo-mark">刃</span>
+    <span class="nav-logo-text">ANIME<strong>LEGENDS</strong></span>
+  </a>
+  <nav class="nav-links">
+    <a href="index.html#hero" class="nav-link">Home</a>
+    <a href="index.html#roster" class="nav-link">Roster</a>
+    <a href="index.html#about" class="nav-link">About</a>
+  </nav>
+  <a href="index.html#roster" class="btn btn-ghost btn-sm"><i class="fa-solid fa-arrow-left"></i> Back to Roster</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle Menu"><i class="fa-solid fa-bars"></i></button>
+</header>
+
+<main id="charMain">
+
+<!-- ============ CHAR HERO ============ -->
+<section class="char-hero" id="charHero">
+  <div class="char-hero-bg" id="charHeroBg"></div>
+  <div class="char-hero-scrim"></div>
+  <div class="char-hero-particles" id="charHeroParticles"></div>
+
+  <div class="char-hero-inner">
+    <div class="char-hero-text">
+      <p class="char-anime-tag" id="charAnime">ANIME</p>
+      <h1 class="char-name" id="charName">Loading...</h1>
+      <p class="char-title" id="charTitle">Title</p>
+      <p class="char-quote" id="charQuote">"..."</p>
+      <div class="char-cta-row">
+        <button class="btn btn-primary" id="unleashBtn"><i class="fa-solid fa-burst"></i> Unleash Power</button>
+        <a href="#lore" class="btn btn-ghost"><i class="fa-solid fa-book-open"></i> Read Lore</a>
+      </div>
+    </div>
+    <div class="char-hero-portrait">
+      <div class="portrait-ring"></div>
+      <div class="portrait-ring ring-2"></div>
+      <img id="charImage" src="" alt="Character portrait" class="portrait-img">
+      <div class="portrait-glow"></div>
+    </div>
+  </div>
+
+  <div class="char-switcher" id="charSwitcher"><!-- mini avatars injected --></div>
+</section>
+
+<!-- ============ POWER SHOWCASE ============ -->
+<section class="power-section">
+  <div class="section-head">
+    <p class="section-kicker">SIGNATURE TECHNIQUE</p>
+    <h2 class="section-title" id="signatureMoveTitle">Signature Move</h2>
+  </div>
+  <div class="power-stage" id="powerStage">
+    <div class="power-stage-fx" id="powerStageFx"></div>
+    <div class="power-stage-caption" id="powerCaption">Click "Unleash Power" to trigger the animation.</div>
+  </div>
+</section>
+
+<!-- ============ ABILITIES GRID ============ -->
+<section class="abilities-section">
+  <div class="section-head">
+    <p class="section-kicker">ARSENAL</p>
+    <h2 class="section-title">Powers &amp; Abilities</h2>
+  </div>
+  <div class="abilities-grid" id="abilitiesGrid"><!-- injected --></div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="stats-section">
+  <div class="stats-grid">
+    <div class="stats-chart-wrap">
+      <p class="section-kicker">POWER ANALYSIS</p>
+      <h2 class="section-title">Battle Stats</h2>
+      <div class="chart-container"><canvas id="statsRadar"></canvas></div>
+    </div>
+    <div class="stats-bars" id="statsBars"><!-- injected --></div>
+  </div>
+</section>
+
+<!-- ============ LORE ============ -->
+<section class="lore-section" id="lore">
+  <div class="lore-inner">
+    <p class="section-kicker">CHRONICLE</p>
+    <h2 class="section-title">Backstory &amp; Legacy</h2>
+    <p class="lore-text" id="charBio">Loading biography...</p>
+  </div>
+</section>
+
+<!-- ============ MORE LEGENDS ============ -->
+<section class="more-section">
+  <div class="section-head">
+    <p class="section-kicker">CONTINUE EXPLORING</p>
+    <h2 class="section-title">More Legends</h2>
+  </div>
+  <div class="more-grid" id="moreGrid"><!-- injected --></div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <span class="nav-logo-mark">刃</span>
+      <span class="nav-logo-text">ANIME<strong>LEGENDS</strong></span>
+    </div>
+    <p class="footer-tag">A fan-made premium showcase celebrating the greatest anime characters ever created.</p>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Anime Legends Showcase. All characters &amp; artwork belong to their respective creators and studios.</p>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/particles.js"></script>
+<script src="js/character.js"></script>
+</body>
+</html>
